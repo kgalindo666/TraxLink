@@ -3,7 +3,7 @@ import Link from 'react-router-dom/Link';
 
 // Martial UI
 
-import AppBar from "@material-ui/core/AppBar";
+import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 

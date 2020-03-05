@@ -17,6 +17,9 @@ const theme = createMuiTheme({
   palette: {
     primary: { main: "#e91e63" },
     secondary: { main: "#33bfff" }
+  },
+  typography: {
+    useNextvariants: true,
   }
 });
 
@@ -27,7 +30,7 @@ class App extends Component {
         <div className="App">
           <Router>
             <div className="container">
-              <Navbar />
+            <Navbar />
               <Switch>
                 <Route exact path="/" component={home} />
                 <Route exact path="/login" component={login} />
