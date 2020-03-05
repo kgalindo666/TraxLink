@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
+import { Link } from 'react-router-dom'
 
 // CARD
 import Card from "@material-ui/core/Card";
@@ -11,7 +12,14 @@ import Typography from "@material-ui/core/Typography";
 
 const styles = {
   card: {
-    display: "flex"
+    display: "flex",
+    marginBottom: 20
+  },
+  image: {
+        minWidth:200
+  },
+  content: {
+      padding: 25
   }
 };
 
@@ -31,10 +39,10 @@ class Comment extends Component {
     } = this.props;
     const date = new Date(createdAt._seconds * 1000);
     return (
-      <Card>
-        <CardMedia image={userImage} title="profile image" />
-        <CardContent>
-          <Typography variant="h5"> {userHandle}</Typography>
+      <Card className={classes.card} >
+        <CardMedia image={userImage} title="profile image" className={classes.image}/>
+        <CardContent class={classes.details}>
+          <Typography variant="h5" component={Link} to={`users/${userHandle}`} color="primary"> {userHandle}</Typography>
           <Typography variant="body2" color="textSecondary">
            {date.toUTCString()}
           </Typography>
