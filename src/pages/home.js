@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import Grid from "@material-ui/core/Grid";
 
+import Comment from "../components/Comment"
+
 class home extends Component {
   state = {
     comments: null
@@ -14,10 +16,10 @@ class home extends Component {
       });
     });
   }
-
+ 
   render() {
     let recentCommentMarkup = this.state.comments ? (
-      this.state.comments.map(comment => <p>{comment.body}</p>)
+      this.state.comments.map((comment) => <Comment comments={comment}/>)
     ) : (
       <p>Loading...</p>
     );
