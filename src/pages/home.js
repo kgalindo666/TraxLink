@@ -19,7 +19,7 @@ class home extends Component {
  
   render() {
     let recentCommentMarkup = this.state.comments ? (
-      this.state.comments.map((comment) => <Comment comments={comment}/>)
+      this.state.comments.map((comment) => <Comment key={comment.replyId} comments={comment}/>)
     ) : (
       <p>Loading...</p>
     );
