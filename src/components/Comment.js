@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { Link } from 'react-router-dom';
-import daysjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
+import { Link } from "react-router-dom";
+import daysjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 
 // CARD
 import Card from "@material-ui/core/Card";
@@ -18,16 +18,16 @@ const styles = {
     marginBottom: 20
   },
   image: {
-        minWidth:200
+    minWidth: 200
   },
   content: {
-      padding: 25
+    padding: 25
   }
 };
 
 class Comment extends Component {
   render() {
-  daysjs.extend(relativeTime)
+    daysjs.extend(relativeTime);
     const {
       classes,
       comments: {
@@ -42,12 +42,24 @@ class Comment extends Component {
     } = this.props;
     const date = new Date(createdAt._seconds * 1000);
     return (
-      <Card className={classes.card} >
-        <CardMedia image={userImage} title="profile image" className={classes.image}/>
+      <Card className={classes.card}>
+        <CardMedia
+          image={userImage}
+          title="profile image"
+          className={classes.image}
+        />
         <CardContent className={classes.details}>
-          <Typography variant="h5" component={Link} to={`users/${userHandle}`} color="primary"> {userHandle}</Typography>
+          <Typography
+            variant="h5"
+            component={Link}
+            to={`users/${userHandle}`}
+            color="primary"
+          >
+            {" "}
+            {userHandle}
+          </Typography>
           <Typography variant="body2" color="textSecondary">
-           {daysjs(date.toUTCString()).fromNow()}
+            {daysjs(date.toUTCString()).fromNow()}
           </Typography>
           <Typography variant="body1"> {body} </Typography>
         </CardContent>
@@ -57,7 +69,3 @@ class Comment extends Component {
 }
 
 export default withStyles(styles)(Comment);
- 
-
-
-// date.toUTCString()
